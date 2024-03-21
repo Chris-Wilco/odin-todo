@@ -1,24 +1,22 @@
-function create(listItem) {
+export function create(title, description, dueDate) {
     let containerDiv = document.createElement("div");
     containerDiv.classList.add("list-item-container");
 
-    let title = document.createElement("div");
-    title.textContent = `Title: ${listItem.title}`;
-    title.classList.add("list-item");
+    let titleElement = document.createElement("div");
+    titleElement.textContent = `Title: ${title}`;
+    titleElement.classList.add("list-item");
 
-    let description = document.createElement("div");
-    description.textContent = `Description: ${listItem.description}`;
-    description.classList.add("list-item");
+    let descriptionElement = document.createElement("div");
+    descriptionElement.textContent = `Description: ${description}`;
+    descriptionElement.classList.add("list-item");
 
-    let dueDate = document.createElement("div");
-    dueDate.textContent = `Due date: ${listItem.dueDate}`;
-    dueDate.classList.add("list-item");
+    let dueDateElement = document.createElement("div");
+    dueDateElement.textContent = `Due date: ${dueDate}`;
+    dueDateElement.classList.add("list-item");
 
-    containerDiv.appendChild(title);
-    containerDiv.appendChild(description);
-    containerDiv.appendChild(dueDate);
+    containerDiv.appendChild(titleElement);
+    containerDiv.appendChild(descriptionElement);
+    containerDiv.appendChild(dueDateElement);
 
     return { containerDiv };
 }
-
-export * from "itemVisual.js";

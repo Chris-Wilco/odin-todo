@@ -1,5 +1,3 @@
-import * as ItemVisual from "./modules/itemVisual.js";
-
 export function create(list) {
     let containerDiv = document.createElement("div");
     containerDiv.classList.add("list-container");
@@ -15,13 +13,8 @@ export function create(list) {
     };
 }
 
-function attachNewListItem(containerDiv, itemVisual) {
-    containerDiv.appendChild(itemVisual);
-}
-
 function appendWholeItemList(containerDiv, list) {
     list.listItems.array.forEach((element) => {
-        const newItemVisual = ItemVisual.create(element);
-        attachNewListItem(containerDiv, newItemVisual);
+        containerDiv.appendChild(element.itemVisual);
     });
 }

@@ -1,23 +1,28 @@
 Todo list structure planning
 
 main menu
-view all projects as a list => start with "default project" for uncategorized lists
-view project with a listing of all internal todo lists with a preview
-view a todo list => click a single todo item to expand and show/edit details
-delete a todo
+-view all projects as a list => start with "default project" for uncategorized lists
+-view project with a listing of all internal todo lists with a preview
+-view a todo list => click a single todo item to expand and show/edit details
+-delete a todo
 
-    todo list/project archive for finished lists and projects
+    -todo list/project archive for finished lists and projects
 
 projects => collections of todo lists
 
 todo lists => collections of todo items
-title
-description
+-title
+-description
 
 todo item => has:
-title
-description
-dueDate
-priority
-notes?
-internal checklist?
+-title
+-description
+-dueDate
+-priority
+-notes?
+-internal checklist?
+
+visual structure:
+-left bar => navigation and lists
+-right space => shows lists and information
+-title bar => shows list or project title

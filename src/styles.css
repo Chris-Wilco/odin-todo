@@ -17,6 +17,8 @@
     --base-line-height: 1.25;
     --content-line-height: 2;
 
+    --montent-line-height: 69;
+
     font-size: var(--base-font-size);
 }
 

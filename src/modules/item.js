@@ -1,4 +1,4 @@
-import * as ItemVisual from "./modules/itemVisual.js";
+import * as ItemVisual from "./itemVisual.js";
 
 export function create(title, description, dueDate) {
     const itemVisual = ItemVisual.create(title, description, dueDate);

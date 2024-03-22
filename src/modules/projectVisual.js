@@ -6,15 +6,15 @@ export function create(projectLists) {
     headerDiv.classList.add("project-header");
     headerDiv.textContent = `I'm a project header`;
 
+    containerDiv.appendChild(headerDiv);
+
     appendAllListsToProject(containerDiv, projectLists);
 
-    return {
-        containerDiv,
-    };
+    return containerDiv;
 }
 
 function appendAllListsToProject(containerDiv, projectLists) {
-    projectLists.array.forEach((element) => {
-        containerDiv.appendChild(element.listVisual);
+    projectLists.forEach((element) => {
+        containerDiv.appendChild(element.listVisual.containerDiv);
     });
 }

@@ -1,10 +1,11 @@
 export function create(title, description, dueDate) {
     let containerDiv = document.createElement("div");
-    containerDiv.classList.add("list-item-container");
+    containerDiv.classList.add("item-container");
 
     let titleElement = document.createElement("div");
     titleElement.textContent = `Title: ${title}`;
     titleElement.classList.add("list-item");
+    titleElement.classList.add("item-header");
 
     let descriptionElement = document.createElement("div");
     descriptionElement.textContent = `Description: ${description}`;

@@ -1,6 +1,6 @@
-import * as ListVisual from "./modules/listVisual.js";
+import * as ListVisual from "./listVisual.js";
 
-export function create(title, description, listItems = []) {
+export function create(title, description, listItems) {
     function addListItem(newItem) {
         listItems.push(newItem);
     }

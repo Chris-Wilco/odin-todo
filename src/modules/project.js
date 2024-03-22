@@ -1,4 +1,4 @@
-import * as ProjectVisual from "./modules/projectVisual.js";
+import * as ProjectVisual from "./projectVisual.js";
 
 export function create(title, description, lists) {
     function addList(newList) {

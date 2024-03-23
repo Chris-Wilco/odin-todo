@@ -8,9 +8,9 @@ export function generatePage(documentBody) {
     contentContainer.classList.add("content-container");
     contentContainer.appendChild(projectList[0].projectVisual);
 
-    const navBar = Navigation.create(projectList);
-    navBar.classList.add("nav-container");
+    const navContainer = Navigation.create(projectList);
+    /* navContainer.classList.add("nav-container"); */
 
-    documentBody.appendChild(navBar);
+    documentBody.appendChild(navContainer);
     documentBody.appendChild(contentContainer);
 }

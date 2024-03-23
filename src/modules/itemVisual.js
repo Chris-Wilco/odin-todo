@@ -1,23 +1,35 @@
 export function create(title, description, dueDate) {
-    let containerDiv = document.createElement("div");
-    containerDiv.classList.add("item-container");
+    const listItemContainer = document.createElement("div");
+    listItemContainer.classList.add("item-container");
 
-    let titleElement = document.createElement("div");
-    titleElement.textContent = `Title: ${title}`;
-    titleElement.classList.add("list-item");
-    titleElement.classList.add("item-header");
+    const checkboxContainer = document.createElement("div");
+    checkboxContainer.classList.add("item-checkbox-container");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.classList.add("item-checkbox");
+    checkboxContainer.appendChild(checkbox);
+    listItemContainer.appendChild(checkboxContainer);
 
-    let descriptionElement = document.createElement("div");
-    descriptionElement.textContent = `Description: ${description}`;
-    descriptionElement.classList.add("list-item");
+    const infoContainer = document.createElement("div");
+    infoContainer.classList.add("item-info-container");
 
-    let dueDateElement = document.createElement("div");
-    dueDateElement.textContent = `Due date: ${dueDate}`;
-    dueDateElement.classList.add("list-item");
+    const itemTitle = document.createElement("div");
+    itemTitle.textContent = title;
+    itemTitle.classList.add("item-title");
 
-    containerDiv.appendChild(titleElement);
-    containerDiv.appendChild(descriptionElement);
-    containerDiv.appendChild(dueDateElement);
+    const itemDescription = document.createElement("div");
+    itemDescription.textContent = description;
+    itemDescription.classList.add("item-description");
 
-    return { containerDiv };
+    const itemDueDate = document.createElement("div");
+    itemDueDate.textContent = dueDate;
+    itemDueDate.classList.add("item-due-date");
+
+    infoContainer.appendChild(itemTitle);
+    infoContainer.appendChild(itemDescription);
+    infoContainer.appendChild(itemDueDate);
+
+    listItemContainer.appendChild(infoContainer);
+
+    return listItemContainer;
 }

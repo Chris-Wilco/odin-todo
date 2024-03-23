@@ -1,22 +1,39 @@
-export function create(list) {
-    let containerDiv = document.createElement("div");
-    containerDiv.classList.add("list-container");
+export function create(title, description, listItems) {
+    const listContainer = document.createElement("div");
+    listContainer.classList.add("list-container");
 
-    let headerDiv = document.createElement("div");
-    headerDiv.classList.add("list-header");
-    headerDiv.textContent = `I'm a list header`;
+    const listTitleContainer = document.createElement("div");
+    listTitleContainer.classList.add("list-title-container");
 
-    containerDiv.appendChild(headerDiv);
+    const listInfoContainer = document.createElement("div");
+    listInfoContainer.classList.add("list-info-container");
 
-    appendWholeItemList(containerDiv, list);
+    const listTitle = document.createElement("div");
+    listTitle.classList.add("list-title");
+    listTitle.textContent = title;
+    listInfoContainer.appendChild(listTitle);
 
-    return {
-        containerDiv,
-    };
+    const listDescription = document.createElement("div");
+    listDescription.classList.add("list-description");
+    listDescription.textContent = description;
+    listInfoContainer.appendChild(listDescription);
+
+    listTitleContainer.appendChild(listInfoContainer);
+
+    const addNewItemButton = document.createElement("div");
+    addNewItemButton.classList.add("new-list-item-button");
+    addNewItemButton.textContent = "add new item";
+    listTitleContainer.appendChild(addNewItemButton);
+
+    listContainer.appendChild(listTitleContainer);
+
+    appendWholeItemList(listContainer, listItems);
+
+    return listContainer;
 }
 
-export function appendWholeItemList(containerDiv, list) {
-    list.forEach((element) => {
-        containerDiv.appendChild(element.itemVisual.containerDiv);
+export function appendWholeItemList(listContainer, listItems) {
+    listItems.forEach((item) => {
+        listContainer.appendChild(item.itemVisual);
     });
 }

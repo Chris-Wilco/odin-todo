@@ -5,7 +5,7 @@ export function create(title, description, lists) {
         lists.push(newList);
     }
 
-    const projectVisual = ProjectVisual.create(lists);
+    const projectVisual = ProjectVisual.create(title, description, lists);
 
     return {
         title,

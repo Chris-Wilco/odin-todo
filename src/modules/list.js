@@ -5,7 +5,7 @@ export function create(title, description, listItems) {
         listItems.push(newItem);
     }
 
-    const listVisual = ListVisual.create(listItems);
+    const listVisual = ListVisual.create(title, description, listItems);
 
     return {
         title,

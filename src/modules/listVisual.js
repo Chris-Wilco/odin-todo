@@ -1,4 +1,7 @@
-export function create(title, description, listItems) {
+import * as List from "./list.js";
+import * as Item from "./item.js";
+
+export function create(title, description, listItems, addListItem) {
     const listContainer = document.createElement("div");
     listContainer.classList.add("list-container");
 
@@ -22,7 +25,10 @@ export function create(title, description, listItems) {
 
     const addNewItemButton = document.createElement("div");
     addNewItemButton.classList.add("new-list-item-button");
-    addNewItemButton.textContent = "add new item";
+    addNewItemButton.addEventListener("click", () => {
+        addListItem();
+        listContainer.appendChild(listItems[listItems.length - 1].itemVisual);
+    });
     listTitleContainer.appendChild(addNewItemButton);
 
     listContainer.appendChild(listTitleContainer);

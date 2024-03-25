@@ -1,11 +1,22 @@
 import * as ListVisual from "./listVisual.js";
+import * as Item from "./item.js";
 
 export function create(title, description, listItems) {
-    function addListItem(newItem) {
+    function addListItem() {
+        const itemName = prompt("Item name?");
+        const itemDescription = prompt("Item description?");
+        const itemDueDate = prompt("Item due date?");
+        const newItem = Item.create(itemName, itemDescription, itemDueDate);
         listItems.push(newItem);
+        console.table(listItems);
     }
 
-    const listVisual = ListVisual.create(title, description, listItems);
+    const listVisual = ListVisual.create(
+        title,
+        description,
+        listItems,
+        addListItem
+    );
 
     return {
         title,

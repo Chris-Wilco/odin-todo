@@ -22,7 +22,7 @@ export function create(title, description, lists) {
 
     const createNewListButton = document.createElement("div");
     createNewListButton.classList.add("new-project-list-button");
-    createNewListButton.textContent = "add new list";
+    /* createNewListButton.textContent = "add new list"; */
     projectTitleContainer.appendChild(createNewListButton);
 
     projectContainer.appendChild(projectTitleContainer);

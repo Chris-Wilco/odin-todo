@@ -30,6 +30,10 @@ export function create(project) {
         const listTitleContainer = document.createElement("div");
         listTitleContainer.classList.add("nav-list-title-container");
 
+        const listTitleIcon = document.createElement("div");
+        listTitleIcon.classList.add("nav-list-title-icon");
+        listTitleContainer.appendChild(listTitleIcon);
+
         const listTitleDiv = document.createElement("div");
         listTitleDiv.classList.add("nav-list-title");
         listTitleDiv.textContent = list.title;

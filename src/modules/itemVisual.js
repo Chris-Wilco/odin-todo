@@ -1,3 +1,5 @@
+import * as GenerateElement from "./generatePageElement.js";
+
 export function create(title, description, dueDate) {
     const listItemContainer = document.createElement("div");
     listItemContainer.classList.add("item-container");
@@ -30,6 +32,14 @@ export function create(title, description, dueDate) {
     infoContainer.appendChild(itemDueDate);
 
     listItemContainer.appendChild(infoContainer);
+
+    const removeItemButton = document.createElement("div");
+    removeItemButton.textContent = "remove item";
+    removeItemButton.classList.add("item-remove-button");
+    removeItemButton.addEventListener("click", () => {
+        listItemContainer.remove();
+    });
+    listItemContainer.appendChild(removeItemButton);
 
     return listItemContainer;
 }

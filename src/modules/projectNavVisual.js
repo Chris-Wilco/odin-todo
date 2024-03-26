@@ -24,6 +24,8 @@ export function create(title, lists) {
         title
     );
 
+    //TODO: Each project needs to be able to open itself in the main content space
+
     const projectContentContainer = GenerateElement.generatePageElement(
         "div",
         ["nav-project-content-container"],

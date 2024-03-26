@@ -39,7 +39,7 @@ export function create(title, description, lists, addList) {
     createNewListButton.addEventListener("click", () => {
         const newList = addList();
         projectContainer.appendChild(newList.listVisual);
-        //event for creating a new list div and accompanying list
+        //TODO: add event for creating a new list div and accompanying list
     });
 
     const removeProjectButton = GenerateElement.generatePageElement(

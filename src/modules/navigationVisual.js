@@ -24,6 +24,7 @@ export function create(projectList) {
         ["new-project-button"],
         navTitleContainer
     );
+    //TODO: This actually needs to add a new project to the nav and the workspace
 
     const navContentContainer = GenerateElement.generatePageElement(
         "div",

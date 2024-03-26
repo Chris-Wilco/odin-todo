@@ -6,7 +6,7 @@ export function generatePage(documentBody) {
     const projectList = GenerateLists.create();
 
     const navContainer = Navigation.create(projectList);
-    documentBody.appendChild(navContainer);
+    documentBody.appendChild(navContainer.navVisual);
 
     const contentContainer = GenerateElement.generatePageElement(
         "div",

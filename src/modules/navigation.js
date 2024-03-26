@@ -1,8 +1,12 @@
-import * as ProjectNavVisual from "./projectNavVisual.js";
-import * as GenerateElement from "./generatePageElement.js";
+/* import * as ProjectNavVisual from "./projectNavVisual.js";
+import * as GenerateElement from "./generatePageElement.js"; */
+
+import * as NavigationVisual from "./navigationVisual.js";
 
 export function create(projectList) {
-    const navContainer = GenerateElement.generatePageElement("div", [
+    const navVisual = NavigationVisual.create(projectList);
+
+    /* const navContainer = GenerateElement.generatePageElement("div", [
         "nav-container",
     ]);
 
@@ -42,5 +46,7 @@ export function create(projectList) {
 
     navContainer.appendChild(navContentContainer);
 
-    return navContainer;
+    return navContainer; */
+
+    return { navVisual };
 }

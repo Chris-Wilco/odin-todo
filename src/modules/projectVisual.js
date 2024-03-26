@@ -42,6 +42,17 @@ export function create(title, description, lists, addList) {
         //event for creating a new list div and accompanying list
     });
 
+    const removeProjectButton = GenerateElement.generatePageElement(
+        "div",
+        ["item-remove-button"],
+        projectContainer,
+        "delete project"
+    );
+    removeProjectButton.addEventListener("click", () => {
+        projectContainer.remove();
+        //TODO: link this to also remove the nav bar representation of this list
+    });
+
     appendAllListsToProject(projectContainer, lists);
 
     return projectContainer;

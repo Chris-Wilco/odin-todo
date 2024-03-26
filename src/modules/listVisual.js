@@ -41,14 +41,15 @@ export function create(title, description, listItems, addListItem) {
         listContainer.appendChild(newItem.itemVisual);
     });
 
-    const removeItemButton = GenerateElement.generatePageElement(
+    const removeListButton = GenerateElement.generatePageElement(
         "div",
         ["item-remove-button"],
         listContainer,
         "delete list"
     );
-    removeItemButton.addEventListener("click", () => {
+    removeListButton.addEventListener("click", () => {
         listContainer.remove();
+        //TODO: link this to also remove the nav bar representation of this list
     });
 
     appendWholeItemList(listContainer, listItems);

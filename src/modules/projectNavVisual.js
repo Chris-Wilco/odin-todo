@@ -1,6 +1,6 @@
 import * as GenerateElement from "./generatePageElement.js";
 
-export function create(project) {
+export function create(title, lists) {
     const projectContainer = GenerateElement.generatePageElement("div", [
         "nav-project-container",
     ]);
@@ -21,7 +21,7 @@ export function create(project) {
         "div",
         ["nav-project-title"],
         projectTitleContainer,
-        project.title
+        title
     );
 
     const projectContentContainer = GenerateElement.generatePageElement(
@@ -30,7 +30,7 @@ export function create(project) {
         projectContainer
     );
 
-    project.lists.forEach((list) => {
+    lists.forEach((list) => {
         projectContentContainer.appendChild(list.listNavVisual);
     });
 

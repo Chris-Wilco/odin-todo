@@ -1,4 +1,6 @@
 import * as ListVisual from "./listVisual.js";
+import * as ListNavVisual from "./listNavVisual.js";
+
 import * as Item from "./item.js";
 
 export function create(title, description, listItems = []) {
@@ -18,11 +20,14 @@ export function create(title, description, listItems = []) {
         addListItem
     );
 
+    const listNavVisual = ListNavVisual.create(title);
+
     return {
         title,
         description,
         listItems,
-        addListItem,
         listVisual,
+        listNavVisual,
+        addListItem,
     };
 }

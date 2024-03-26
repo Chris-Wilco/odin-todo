@@ -1,4 +1,3 @@
-import * as List from "./list.js";
 import * as GenerateElement from "./generatePageElement.js";
 
 export function create(title, description, listItems, addListItem) {
@@ -9,46 +8,50 @@ export function create(title, description, listItems, addListItem) {
     const listTitleContainer = GenerateElement.generatePageElement(
         "div",
         ["list-title-container"],
-        null,
         listContainer
     );
 
     const listInfoContainer = GenerateElement.generatePageElement(
         "div",
         ["list-info-container"],
-        null,
         listTitleContainer
     );
 
     const listTitle = GenerateElement.generatePageElement(
         "div",
         ["list-title"],
-        title,
-        listInfoContainer
+        listInfoContainer,
+        title
     );
 
     const listDescription = GenerateElement.generatePageElement(
         "div",
         ["list-description"],
-        description,
-        listInfoContainer
+        listInfoContainer,
+        description
     );
 
     const addNewItemButton = GenerateElement.generatePageElement(
         "div",
         ["new-list-item-button"],
-        null,
         listTitleContainer
     );
-
     addNewItemButton.addEventListener("click", () => {
         const newItem = addListItem();
         listContainer.appendChild(newItem.itemVisual);
     });
 
-    appendWholeItemList(listContainer, listItems);
+    const removeItemButton = GenerateElement.generatePageElement(
+        "div",
+        ["item-remove-button"],
+        listContainer,
+        "delete list"
+    );
+    removeItemButton.addEventListener("click", () => {
+        listContainer.remove();
+    });
 
-    //blah
+    appendWholeItemList(listContainer, listItems);
 
     return listContainer;
 }

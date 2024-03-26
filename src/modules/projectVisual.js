@@ -8,34 +8,31 @@ export function create(title, description, lists, addList) {
     const projectTitleContainer = GenerateElement.generatePageElement(
         "div",
         ["project-title-container"],
-        null,
         projectContainer
     );
 
     const projectInfoContainer = GenerateElement.generatePageElement(
         "div",
         ["project-info-container"],
-        null,
         projectTitleContainer
     );
 
     const projectTitle = GenerateElement.generatePageElement(
         "div",
         ["project-title"],
-        title,
-        projectInfoContainer
+        projectInfoContainer,
+        title
     );
     const projectDescription = GenerateElement.generatePageElement(
         "div",
         ["project-description"],
-        description,
-        projectInfoContainer
+        projectInfoContainer,
+        description
     );
 
     const createNewListButton = GenerateElement.generatePageElement(
         "div",
         ["new-project-list-button"],
-        null,
         projectTitleContainer
     );
 

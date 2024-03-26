@@ -8,13 +8,11 @@ export function create(title, description, dueDate) {
     const checkboxContainer = GenerateElement.generatePageElement(
         "div",
         ["item-checkbox-container"],
-        null,
         listItemContainer
     );
     const checkbox = GenerateElement.generatePageElement(
         "input",
         ["item-checkbox"],
-        null,
         checkboxContainer
     );
     checkbox.type = "checkbox";
@@ -22,36 +20,35 @@ export function create(title, description, dueDate) {
     const infoContainer = GenerateElement.generatePageElement(
         "div",
         ["item-info-container"],
-        null,
         listItemContainer
     );
 
     const itemTitle = GenerateElement.generatePageElement(
         "div",
         ["item-title"],
-        title,
-        infoContainer
+        infoContainer,
+        title
     );
 
     const itemDescription = GenerateElement.generatePageElement(
         "div",
         ["item-description"],
-        description,
-        infoContainer
+        infoContainer,
+        description
     );
 
     const itemDueDate = GenerateElement.generatePageElement(
         "div",
         ["item-due-date"],
-        dueDate,
-        infoContainer
+        infoContainer,
+        dueDate
     );
 
     const removeItemButton = GenerateElement.generatePageElement(
         "div",
         ["item-remove-button"],
-        "remove item",
-        listItemContainer
+        listItemContainer,
+        "remove item"
     );
     removeItemButton.addEventListener("click", () => {
         listItemContainer.remove();

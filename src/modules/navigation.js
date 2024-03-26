@@ -1,29 +1,42 @@
-import * as NavigationVisual from "./navigationVisual.js";
+import * as ProjectNavVisual from "./projectNavVisual.js";
+import * as GenerateElement from "./generatePageElement.js";
 
 export function create(projectList) {
-    const navContainer = document.createElement("div");
-    navContainer.classList.add("nav-container");
+    const navContainer = GenerateElement.generatePageElement("div", [
+        "nav-container",
+    ]);
 
-    const navTitleContainer = document.createElement("div");
-    navTitleContainer.classList.add("nav-title-container");
+    const navTitleContainer = GenerateElement.generatePageElement(
+        "div",
+        ["nav-title-container"],
+        navContainer
+    );
 
-    const navTitle = document.createElement("div");
-    navTitle.textContent = "My Projects";
-    navTitle.classList.add("nav-title");
-    navTitleContainer.appendChild(navTitle);
+    const navTitle = GenerateElement.generatePageElement(
+        "div",
+        ["nav-title"],
+        navTitleContainer,
+        "My Projects"
+    );
 
-    const addNewProjectButton = document.createElement("div");
-    addNewProjectButton.classList.add("new-project-button");
-    /* addNewProjectButton.textContent = "new"; */
-    navTitleContainer.appendChild(addNewProjectButton);
+    const addNewProjectButton = GenerateElement.generatePageElement(
+        "div",
+        ["new-project-button"],
+        navTitleContainer
+    );
 
-    navContainer.appendChild(navTitleContainer);
-
-    const navContentContainer = document.createElement("div");
-    navContentContainer.classList.add("nav-content-container");
+    const navContentContainer = GenerateElement.generatePageElement(
+        "div",
+        ["nav-content-container"],
+        navContainer
+    );
 
     projectList.forEach((project) => {
-        const navProjectVisual = NavigationVisual.create(project);
+        const navProjectVisual = ProjectNavVisual.create(
+            project.title,
+            project.lists
+        );
+
         navContentContainer.appendChild(navProjectVisual);
     });
 

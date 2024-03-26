@@ -1,8 +1,8 @@
 export function generatePageElement(
     elementType,
     elementClasses = {},
-    elementText,
-    parentElement
+    elementText = null,
+    parentElement = null
 ) {
     if (elementType == null) {
         return;

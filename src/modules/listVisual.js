@@ -1,37 +1,50 @@
 import * as List from "./list.js";
-import * as Item from "./item.js";
+import * as GenerateElement from "./generatePageElement.js";
 
 export function create(title, description, listItems, addListItem) {
-    const listContainer = document.createElement("div");
-    listContainer.classList.add("list-container");
+    const listContainer = GenerateElement.generatePageElement("div", [
+        "list-container",
+    ]);
 
-    const listTitleContainer = document.createElement("div");
-    listTitleContainer.classList.add("list-title-container");
+    const listTitleContainer = GenerateElement.generatePageElement(
+        "div",
+        ["list-title-container"],
+        null,
+        listContainer
+    );
 
-    const listInfoContainer = document.createElement("div");
-    listInfoContainer.classList.add("list-info-container");
+    const listInfoContainer = GenerateElement.generatePageElement(
+        "div",
+        ["list-info-container"],
+        null,
+        listTitleContainer
+    );
 
-    const listTitle = document.createElement("div");
-    listTitle.classList.add("list-title");
-    listTitle.textContent = title;
-    listInfoContainer.appendChild(listTitle);
+    const listTitle = GenerateElement.generatePageElement(
+        "div",
+        ["list-title"],
+        title,
+        listInfoContainer
+    );
 
-    const listDescription = document.createElement("div");
-    listDescription.classList.add("list-description");
-    listDescription.textContent = description;
-    listInfoContainer.appendChild(listDescription);
+    const listDescription = GenerateElement.generatePageElement(
+        "div",
+        ["list-description"],
+        description,
+        listInfoContainer
+    );
 
-    listTitleContainer.appendChild(listInfoContainer);
+    const addNewItemButton = GenerateElement.generatePageElement(
+        "div",
+        ["new-list-item-button"],
+        null,
+        listTitleContainer
+    );
 
-    const addNewItemButton = document.createElement("div");
-    addNewItemButton.classList.add("new-list-item-button");
     addNewItemButton.addEventListener("click", () => {
         addListItem();
         listContainer.appendChild(listItems[listItems.length - 1].itemVisual);
     });
-    listTitleContainer.appendChild(addNewItemButton);
-
-    listContainer.appendChild(listTitleContainer);
 
     appendWholeItemList(listContainer, listItems);
 

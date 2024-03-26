@@ -1,45 +1,61 @@
 import * as GenerateElement from "./generatePageElement.js";
 
 export function create(title, description, dueDate) {
-    const listItemContainer = document.createElement("div");
-    listItemContainer.classList.add("item-container");
+    const listItemContainer = GenerateElement.generatePageElement("div", [
+        "item-container",
+    ]);
 
-    const checkboxContainer = document.createElement("div");
-    checkboxContainer.classList.add("item-checkbox-container");
-    const checkbox = document.createElement("input");
+    const checkboxContainer = GenerateElement.generatePageElement(
+        "div",
+        ["item-checkbox-container"],
+        null,
+        listItemContainer
+    );
+    const checkbox = GenerateElement.generatePageElement(
+        "input",
+        ["item-checkbox"],
+        null,
+        checkboxContainer
+    );
     checkbox.type = "checkbox";
-    checkbox.classList.add("item-checkbox");
-    checkboxContainer.appendChild(checkbox);
-    listItemContainer.appendChild(checkboxContainer);
 
-    const infoContainer = document.createElement("div");
-    infoContainer.classList.add("item-info-container");
+    const infoContainer = GenerateElement.generatePageElement(
+        "div",
+        ["item-info-container"],
+        null,
+        listItemContainer
+    );
 
-    const itemTitle = document.createElement("div");
-    itemTitle.textContent = title;
-    itemTitle.classList.add("item-title");
+    const itemTitle = GenerateElement.generatePageElement(
+        "div",
+        ["item-title"],
+        title,
+        infoContainer
+    );
 
-    const itemDescription = document.createElement("div");
-    itemDescription.textContent = description;
-    itemDescription.classList.add("item-description");
+    const itemDescription = GenerateElement.generatePageElement(
+        "div",
+        ["item-description"],
+        description,
+        infoContainer
+    );
 
-    const itemDueDate = document.createElement("div");
-    itemDueDate.textContent = dueDate;
-    itemDueDate.classList.add("item-due-date");
+    const itemDueDate = GenerateElement.generatePageElement(
+        "div",
+        ["item-due-date"],
+        dueDate,
+        infoContainer
+    );
 
-    infoContainer.appendChild(itemTitle);
-    infoContainer.appendChild(itemDescription);
-    infoContainer.appendChild(itemDueDate);
-
-    listItemContainer.appendChild(infoContainer);
-
-    const removeItemButton = document.createElement("div");
-    removeItemButton.textContent = "remove item";
-    removeItemButton.classList.add("item-remove-button");
+    const removeItemButton = GenerateElement.generatePageElement(
+        "div",
+        ["item-remove-button"],
+        "remove item",
+        listItemContainer
+    );
     removeItemButton.addEventListener("click", () => {
         listItemContainer.remove();
     });
-    listItemContainer.appendChild(removeItemButton);
 
     return listItemContainer;
 }

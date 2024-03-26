@@ -186,9 +186,11 @@ body {
     display: grid;
     grid-template-columns: 5fr 1fr;
     font-size: var(--project-info-font-size);
+    border: solid black 1px;
 }
 
 .project-info-container {
+    border: solid black 1px;
 }
 
 .project-title {

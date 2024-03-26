@@ -1,31 +1,49 @@
-export function create(title, description, lists) {
-    const projectContainer = document.createElement("div");
-    projectContainer.classList.add("project-container");
+import * as GenerateElement from "./generatePageElement.js";
 
-    const projectTitleContainer = document.createElement("div");
-    projectTitleContainer.classList.add("project-title-container");
+export function create(title, description, lists, addList) {
+    const projectContainer = GenerateElement.generatePageElement("div", [
+        "project-container",
+    ]);
 
-    const projectInfoContainer = document.createElement("div");
-    projectInfoContainer.classList.add("project-info-container");
+    const projectTitleContainer = GenerateElement.generatePageElement(
+        "div",
+        ["project-title-container"],
+        null,
+        projectContainer
+    );
 
-    const projectTitle = document.createElement("div");
-    projectTitle.classList.add("project-title");
-    projectTitle.textContent = title;
-    projectInfoContainer.appendChild(projectTitle);
+    const projectInfoContainer = GenerateElement.generatePageElement(
+        "div",
+        ["project-info-container"],
+        null,
+        projectTitleContainer
+    );
 
-    const projectDescription = document.createElement("div");
-    projectDescription.classList.add("project-description");
-    projectDescription.textContent = description;
-    projectInfoContainer.appendChild(projectDescription);
+    const projectTitle = GenerateElement.generatePageElement(
+        "div",
+        ["project-title"],
+        title,
+        projectInfoContainer
+    );
+    const projectDescription = GenerateElement.generatePageElement(
+        "div",
+        ["project-description"],
+        description,
+        projectInfoContainer
+    );
 
-    projectTitleContainer.appendChild(projectInfoContainer);
+    const createNewListButton = GenerateElement.generatePageElement(
+        "div",
+        ["new-project-list-button"],
+        null,
+        projectTitleContainer
+    );
 
-    const createNewListButton = document.createElement("div");
-    createNewListButton.classList.add("new-project-list-button");
-    /* createNewListButton.textContent = "add new list"; */
-    projectTitleContainer.appendChild(createNewListButton);
-
-    projectContainer.appendChild(projectTitleContainer);
+    createNewListButton.addEventListener("click", () => {
+        const newList = addList();
+        projectContainer.appendChild(newList.listVisual);
+        //event for creating a new list div and accompanying list
+    });
 
     appendAllListsToProject(projectContainer, lists);
 

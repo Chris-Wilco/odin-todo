@@ -42,8 +42,8 @@ export function create(title, description, listItems, addListItem) {
     );
 
     addNewItemButton.addEventListener("click", () => {
-        addListItem();
-        listContainer.appendChild(listItems[listItems.length - 1].itemVisual);
+        const newItem = addListItem();
+        listContainer.appendChild(newItem.itemVisual);
     });
 
     appendWholeItemList(listContainer, listItems);

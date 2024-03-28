@@ -2,9 +2,11 @@ import * as ProjectNavVisual from "./projectNavVisual.js";
 import * as GenerateElement from "./generatePageElement.js";
 
 export function create(projectList) {
-    const navContainer = GenerateElement.generatePageElement("div", [
-        "nav-container",
-    ]);
+    const navContainer = GenerateElement.generatePageElement(
+        "div",
+        ["nav-container"],
+        document.querySelector("body")
+    );
 
     const navTitleContainer = GenerateElement.generatePageElement(
         "div",
@@ -33,12 +35,13 @@ export function create(projectList) {
     );
 
     projectList.forEach((project) => {
-        const navProjectVisual = ProjectNavVisual.create(
+        /* const navProjectVisual = ProjectNavVisual.create(
             project.title,
             project.lists
         );
+        navContentContainer.appendChild(navProjectVisual); */
 
-        navContentContainer.appendChild(navProjectVisual);
+        navContentContainer.appendChild(project.projectNavVisual);
     });
 
     navContainer.appendChild(navContentContainer);

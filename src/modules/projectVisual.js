@@ -1,6 +1,14 @@
 import * as GenerateElement from "./generatePageElement.js";
+import * as GeneratePage from "./generatePage.js";
 
-export function create(title, description, lists, addList) {
+export function create(
+    title,
+    description,
+    lists,
+    addList,
+    navContainer = null,
+    contentContainer = null
+) {
     const projectContainer = GenerateElement.generatePageElement("div", [
         "project-container",
     ]);
@@ -38,7 +46,11 @@ export function create(title, description, lists, addList) {
 
     createNewListButton.addEventListener("click", () => {
         const newList = addList();
-        projectContainer.appendChild(newList.listVisual);
+        contentContainer.resetContentContainer();
+        //projectContainer.appendChild(newList.listVisual);
+
+        /* GeneratePage.resetPage(); */
+
         //TODO: add event for creating a new list div and accompanying list
     });
 

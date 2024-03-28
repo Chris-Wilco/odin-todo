@@ -22,6 +22,23 @@ export function create(title, description, listItems = []) {
 
     const listNavVisual = ListNavVisual.create(title);
 
+    let contentContainer;
+    let navContainer;
+
+    function updateNavContainer(newNavContainer) {
+        navContainer = newNavContainer;
+        listItems.forEach((item) => {
+            item.updateNavContainer(newNavContainer);
+        });
+    }
+
+    function updateContentContainer(newContentContainer) {
+        contentContainer = newContentContainer;
+        listItems.forEach((item) => {
+            item.updateContentContainer(newContentContainer);
+        });
+    }
+
     return {
         title,
         description,
@@ -29,5 +46,7 @@ export function create(title, description, listItems = []) {
         listVisual,
         listNavVisual,
         addListItem,
+        updateNavContainer,
+        updateContentContainer,
     };
 }

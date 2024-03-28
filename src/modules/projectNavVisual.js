@@ -1,6 +1,6 @@
 import * as GenerateElement from "./generatePageElement.js";
 
-export function create(title, lists) {
+export function create(title, lists, navContainer, contentContainer) {
     const projectContainer = GenerateElement.generatePageElement("div", [
         "nav-project-container",
     ]);

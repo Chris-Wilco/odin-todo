@@ -9,5 +9,22 @@ export function create(projects = []) {
         return newProject;
     }
 
-    return { projects, addProject };
+    let contentContainer;
+    let navContainer;
+
+    function updateNavContainer(newNavContainer) {
+        navContainer = newNavContainer;
+        projects.forEach((project) => {
+            project.updateNavContainer(newNavContainer);
+        });
+    }
+
+    function updateContentContainer(newContentContainer) {
+        contentContainer = newContentContainer;
+        projects.forEach((project) => {
+            project.updateContentContainer(newContentContainer);
+        });
+    }
+
+    return { projects, addProject, updateNavContainer, updateContentContainer };
 }

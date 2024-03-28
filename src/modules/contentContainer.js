@@ -1,17 +1,39 @@
 import * as GenerateElement from "./generatePageElement.js";
 
-export function create(documentBody, user) {
+export function create(user) {
+    let navContainer;
+
     const contentContainer = GenerateElement.generatePageElement(
         "div",
         ["content-container"],
-        documentBody
+        document.querySelector("body")
     );
 
-    function clearContentArea() {}
+    function clearContentArea() {
+        while (contentContainer.firstChild) {
+            contentContainer.removeChild(contentContainer.lastChild);
+        }
+    }
 
     function changeProject(project) {
         contentContainer.appendChild(project.projectVisual);
     }
 
-    return { contentContainer, clearContentArea, changeProject };
+    function resetContentContainer() {
+        clearContentArea();
+        changeProject(user.projects[0]);
+        //navContainer.resetNavVisual();
+    }
+
+    function updateNavContainer(newNavContainer) {
+        navContainer = newNavContainer;
+    }
+
+    return {
+        contentContainer,
+        clearContentArea,
+        changeProject,
+        resetContentContainer,
+        updateNavContainer,
+    };
 }
